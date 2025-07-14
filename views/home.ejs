@@ -1,0 +1,106 @@
+<%- include("partials/header") %>
+
+<!-- Hero Section -->
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 bg-red-800">
+
+
+ <!-- LIFE-LINK Heading -->
+  <div class="absolute top-6 left-8">
+    <h1 class="text-4xl md:text-5xl font-bold leading-snug mb-0 mt-50 text-white">
+
+    <h2 class="text-3xl md:20 md:text-4xl font-extrabold tracking-wide">
+      <span class="text-black">LIFE</span><span class="text-red-600">-LINK</span>
+    </h2>
+  </div>
+ 
+
+
+  <!-- Text Section -->
+  <div class="w-full md:w-1/2 mb-8 md:mb-0">
+    <h1 class="text-4xl md:text-5xl font-bold leading-snug mb-6 text-white">
+      You don’t have to be a doctor to save lives — 
+      <span class="text-red-300">just donate blood</span>
+    </h1>
+     <div class="flex gap-6 mt-28">
+
+      <a href="/donor" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold text-lg shadow-md">
+        🔴 Donate Blood
+      </a>
+      <a href="/recipient" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-lg shadow-md">
+        ❗ Request Blood
+      </a>
+    </div>
+  </div>
+
+  <!-- Image Section -->
+  <div class="w-full md:w-1/2 flex justify-center">
+    <img src="/images/blood-drop.png" alt="Blood Drop" class="w-80 drop-shadow-xl" />
+  </div>
+</div>
+ 
+
+
+<!-- Our Aim Section -->
+<div class="px-8 py-12 bg-white text-gray-900">
+  <h2 class="text-4xl font-extrabold text-red-800 mb-4">Our Aim</h2>
+  <p class="text-lg text-gray-600 mb-6">
+    "Donating blood is the gift of life; a small act of kindness that saves lives."
+  </p>
+
+  <!-- Tabs -->
+  <div class="flex space-x-4 mb-6">
+    <button class="tab-btn px-4 py-2 rounded font-semibold bg-black text-white" data-tab="vision">Vision</button>
+    <button class="tab-btn px-4 py-2 rounded font-semibold bg-gray-200 text-red-800" data-tab="mission">Mission</button>
+    <button class="tab-btn px-4 py-2 rounded font-semibold bg-gray-200 text-red-800" data-tab="strategy">Strategy</button>
+  </div>
+
+  <!-- Tab Contents -->
+  <div id="vision" class="tab-content">
+    <p class="text-red-700 font-medium">
+      Vision:  Empower communities with seamless access to blood donations and essential health services through smart, accessible, and compassionate technology.
+    </p>
+  </div>
+  <div id="mission" class="tab-content hidden">
+    <p class="text-red-700 font-medium">
+      Mission: Connect donors and recipients, provide emergency services, and offer health info via AI-enhanced app.
+    </p>
+  </div>
+  <div id="strategy" class="tab-content hidden">
+    <p class="text-red-700 font-medium">
+      Strategy:  
+Build a user-friendly platform for blood donation management.
+Use AI for personalized support, donor-recipient matching, and 24/7 chatbot.
+Leverage IoT and smart logistics for faster blood transport and stock tracking.
+Organize regular donation drives and awareness events.
+    </p>
+  </div>
+</div>
+
+<!-- JavaScript to toggle tabs -->
+<script>
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabButtons.forEach((b) => {
+        b.classList.remove("bg-black", "text-white");
+        b.classList.add("bg-gray-200", "text-red-800");
+      });
+
+      btn.classList.remove("bg-gray-200", "text-red-800");
+      btn.classList.add("bg-black", "text-white");
+
+      tabContents.forEach((content) => content.classList.add("hidden"));
+
+      const selected = btn.getAttribute("data-tab");
+      document.getElementById(selected).classList.remove("hidden");
+    });
+  });
+
+  tabButtons[0].click();
+   
+
+</script>
+
+<%- include("partials/footer") %>
